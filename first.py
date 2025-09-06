@@ -1,36 +1,38 @@
-def calcu(oper, num1, num2):
-    match oper:
-        case "add":
-            output = num1 + num2
-            print(output)
-        case "subtract":
-            output = num1-num2
-            print(output)
-        case "multiply":
-            output = num1*num2
-            print(output)
-        case "divide":
-            output = num1/num2 
-            print(output)
-        case _:
-            print('Invalid operation')
-
-print('Hello! This is a calculator.\nThese are the choices (add, subtract, multiply, divide)')
 
 while True:
+    print('Hello! This is a calculator.\nThese are the choices (add, subtract, multiply, divide)')
     
-    operation = input('Input operation: ')
-    number1 = input('First number: ')
-    number2 = input('Second number: ')
+    try:
+        number1 = float(input('First number: '))
+        number2 = float(input('Second number: '))
+        oper = input('Input operation: ') 
+        
+        match oper:
+            case "add":
+                        output = number1 + number2
+                        print(output)
+            case "subtract":
+                        output = number1-number2
+                        print(output)
+                            
+            case "multiply":
+                        output = number1*number2
+                        print(output)
+                            
+            case "divide":
+                        output = number1/number2 
+                        print(output)
+            case _:
+                        print('Invalid operation')
     
-    print(calcu(operation, float(number1), float(number2)))
+    except:
+        print('Invalid Input. Please try again')
+    
     confirmation = input('Continue? (y/n): ').lower()
-    
     if confirmation == 'y':
-        print('These are the choices (add, subtract, multiply, divide)')
+        continue
     elif confirmation == 'n':
         print('Shutting down...')
         break
     else:
-        print('Unknown. Continuing...')
-    
+        print('Unknown Command...')        
